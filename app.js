@@ -7,12 +7,14 @@ import subscriptionRouter from "./routes/subscription.routes.js";
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middleware/error.middleware.js";
 import cookieParser from "cookie-parser";
+import arcjetMiddleware from "./middleware/arcjet.middleware.js";
 
 const app = experss();
 app.use(experss.json());
 app.use(experss.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(arcjetMiddleware);
+//
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
