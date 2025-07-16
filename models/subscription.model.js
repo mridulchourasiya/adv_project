@@ -46,7 +46,7 @@ const subscriptionSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["active", "inactive", "cancelled"],
+      enum: ["active", "inactive", "cancelled", "expired"],
       default: "active",
     },
 
@@ -95,9 +95,8 @@ subscriptionSchema.pre("save", function (next) {
     );
   }
 
-  // auto-update the status if the renewal date has passed
   if (this.renewalDate < new Date()) {
-    this.status = "exprired";
+    this.status = "expired"; // ✅ fixed typo
   }
 
   next();
