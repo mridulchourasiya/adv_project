@@ -11,6 +11,17 @@ import arcjetMiddleware from "./middleware/arcjet.middleware.js";
 import workflowRouter from "./routes/workflow.routes.js";
 
 const app = experss();
+
+//swagger ui integration
+import swaggerUi from "swagger-ui-express";
+
+import { readFileSync } from "fs";
+const swaggerDocument = JSON.parse(
+  readFileSync(new URL("./swagger-output.json", import.meta.url))
+);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(experss.json());
 app.use(experss.urlencoded({ extended: false }));
 app.use(cookieParser());
