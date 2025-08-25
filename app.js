@@ -13,7 +13,7 @@ import cors from "cors";
 
 const app = experss();
 const corsOptions = {
-  origin: "*", // or specify your frontend URL like "http://localhost:3000"
+  origin: "http://localhost:5500/", // or specify your frontend URL like "http://localhost:3000"
   credentials: true, // if you use cookies or auth headers
 };
 
