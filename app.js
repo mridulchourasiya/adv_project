@@ -9,12 +9,17 @@ import errorMiddleware from "./middleware/error.middleware.js";
 import cookieParser from "cookie-parser";
 import arcjetMiddleware from "./middleware/arcjet.middleware.js";
 import workflowRouter from "./routes/workflow.routes.js";
+import cors from "cors";
 
 const app = experss();
+const corsOptions = {
+  origin: "*", // or specify your frontend URL like "http://localhost:3000"
+  credentials: true, // if you use cookies or auth headers
+};
 
 //swagger ui integration
 import swaggerUi from "swagger-ui-express";
-
+app.use(cors(corsOptions));
 import { readFileSync } from "fs";
 const swaggerDocument = JSON.parse(
   readFileSync(new URL("./swagger-output.json", import.meta.url))

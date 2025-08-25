@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "generateDoc":"node swagger.js"
-    
+    "generateDoc": "node swagger.js"
   },
   "dependencies": {
     "@arcjet/inspect": "^1.0.0-beta.9",
@@ -15,6 +14,7 @@
     "@upstash/workflow": "^0.2.16",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.13",
     "debug": "~2.6.9",
     "dotenv": "^17.1.0",
